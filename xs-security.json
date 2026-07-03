@@ -6,6 +6,18 @@
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin Scope"
+    },
+    {
+      "name": "$XSAPPNAME.Kids",
+      "description": "Kids Scope"
+    },
+    {
+      "name": "$XSAPPNAME.Adult",
+      "description": "Adult Scope"
     }
   ],
   "role-templates": [
@@ -15,6 +27,58 @@
       "scope-references": [
         "uaa.user"
       ]
+    },
+    {
+      "name": "Admin",
+      "description": "Admin",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "Kids",
+      "description": "Kids",
+      "scope-references": [
+        "$XSAPPNAME.Kids"
+      ]
+    },
+    {
+      "name": "Adult",
+      "description": "Adult",
+      "scope-references": [
+        "$XSAPPNAME.Adult"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "AdminRoleCollection",
+      "description": "Role collection for Admin Group",
+      "role-template-references": [
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name": "KidsRoleCollection",
+      "description": "Role collection for Kids Group",
+      "role-template-references": [
+        "$XSAPPNAME.Kids"
+      ]
+    },
+    {
+      "name": "AdultRoleCollection",
+      "description": "Role collection for Adults Group",
+      "role-template-references": [
+        "$XSAPPNAME.Adult"
+      ]
+    }
+  ],
+  "attributes": [
+    {
+      "name": "bookAgeGroup",
+      "description": "bookAgeGroup",
+      "valueType": "s",
+      "valueRequired": false
     }
   ]
 }

@@ -4,14 +4,14 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "@sap/xssec": "^4.13.1"
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
     "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.17.0",
-    "rimraf": "^5.0.5",
-    "mbt": "^1.2.49"
+    "mbt": "^1.2.49",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "cds-serve",
@@ -27,15 +27,43 @@
         "[development]": {
           "strategy": "mocked",
           "users": {
-            "suman": {"password": "welcome1","roles": ["Admin"] },
-            "Kids": {"password": "welcome2","roles": ["Kids"] , "userAttributes": {"bookAgeGroup": ["KIDS"] }},
-            "Adult": {"password": "welcome3","roles": ["Adult"] , "userAttributes": {"bookAgeGroup": ["ADULT"] }}
+            "suman": {
+              "password": "welcome1",
+              "roles": [
+                "Admin"
+              ]
+            },
+            "Kids": {
+              "password": "welcome2",
+              "roles": [
+                "Kids"
+              ],
+              "userAttributes": {
+                "bookAgeGroup": [
+                  "KIDS"
+                ]
+              }
+            },
+            "Adult": {
+              "password": "welcome3",
+              "roles": [
+                "Adult"
+              ],
+              "userAttributes": {
+                "bookAgeGroup": [
+                  "ADULT"
+                ]
+              }
+            }
           }
         }
       },
       "[production]": {
         "db": "hana",
-        "strategy": "JWT"
+        "strategy": "JWT",
+        "auth": {
+          "kind": "xsuaa"
+        }
       }
     }
   },
